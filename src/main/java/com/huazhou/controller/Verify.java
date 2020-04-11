@@ -1,6 +1,8 @@
 package com.huazhou.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.huazhou.util.ImageModel;
+import com.huazhou.util.ImgUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +14,8 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/login")
-public class Login extends HttpServlet {
-
+@WebServlet("/verify")
+public class Verify extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -22,23 +23,15 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.setCharacterEncoding("UTF-8");
-        String username = req.getParameter("");
-        String pass = req.getParameter("password");
-
         resp.setContentType("text/json;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", username);
-        map.put("pass", pass);
-        map.put("result", "success");
-        String resJSON = JSON.toJSONString(map);
-        printWriter.println(resJSON);
-    }
 
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.service(req, resp);
+        Map map = new HashMap<>();
+        ImageModel imageModel = ImgUtil.createImgModel();
+        map.put("codeKey", imageModel.getImgVal());
+        map.put("codePic", imageModel.getBase64Str());
+        printWriter.println(JSON.toJSONString(map));
+
     }
 }
