@@ -50,6 +50,7 @@ loginForm.addEventListener('click', function () {
         contentType:"application/json",
         success:function(data){
             console.log(data);
+            window.location.href = "main.html";
         },
         //异常处理
         error:function(e){
