@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑州建筑-主界面</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <!--导航栏-->
+        <div class="mynav">
+
+        </div>
+        <!--菜单栏-->
+        <div class="menu">
+            <h2>用户管理</h2>
+            <ul>
+                <li><a href="#" id="userList">用户列表</a></li>
+                <li><a href="#">添加用户</a></li>
+                <li><a href="#">删除用户</a></li>
+                <li><a href="#">修改用户</a></li>
+            </ul>
+            <h2>订单管理</h2>
+            <ul>
+                <li><a href="#">用户列表</a></li>
+                <li><a href="#">添加用户</a></li>
+                <li><a href="#">删除用户</a></li>
+                <li><a href="#">修改用户</a></li>
+            </ul>
+            <h2>商品管理</h2>
+            <ul>
+                <li><a href="#">用户列表</a></li>
+                <li><a href="#">添加用户</a></li>
+                <li><a href="#">删除用户</a></li>
+                <li><a href="#">修改用户</a></li>
+            </ul>
+            <h2>评论管理</h2>
+            <ul>
+                <li><a href="#">用户列表</a></li>
+                <li><a href="#">添加用户</a></li>
+                <li><a href="#">删除用户</a></li>
+                <li><a href="#">修改用户</a></li>
+            </ul>
+        </div>
+        <div class="content-footer" id="content-footer">
+            <!--文本区域-->
+            <div class="content" id="content">
+            </div>
+            <!--页脚-->
+            <div class="footer">
+
+            </div>
+        </div>
+    </div>
+<script src="js/main.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function(){
+            $('.menu h2').on('click', function(){
+                $(this).next('ul').toggleClass('active')
+            })
+        })
+    </script>
+</body>
+</html>
